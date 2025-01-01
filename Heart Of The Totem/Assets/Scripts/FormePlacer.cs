@@ -3,10 +3,9 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-
 public class FormePlacer : MonoBehaviour
 {
-public ARRaycastManager arRaycastManager;
+    public ARRaycastManager arRaycastManager;
     public FormeSelector formeSelector;
 
     private GameObject activeForme;
@@ -66,13 +65,6 @@ public ARRaycastManager arRaycastManager;
                 Pose hitPose = hits[0].pose;
                 activeForme.transform.position = hitPose.position;
             }
-
-            if (touch.phase == TouchPhase.Ended)
-            {
-                isPlacing = false;
-                activeForme = null;
-                Debug.Log("Placement terminé !");
-            }
         }
     }
 
@@ -96,6 +88,26 @@ public ARRaycastManager arRaycastManager;
                 activeForme.transform.localScale = Vector3.one * initialScale * scaleDelta;
                 Debug.Log($"Échelle mise à jour : {activeForme.transform.localScale}");
             }
+        }
+    }
+
+    public void ValidatePlacement()
+    {
+        if (activeForme != null)
+        {
+            isPlacing = false;
+            Debug.Log($"Placement validé pour l'objet {activeForme.name} !");
+        }
+    }
+
+    public void CancelPlacement()
+    {
+        if (activeForme != null)
+        {
+            Destroy(activeForme);
+            activeForme = null;
+            isPlacing = false;
+            Debug.Log("Placement annulé !");
         }
     }
 }
