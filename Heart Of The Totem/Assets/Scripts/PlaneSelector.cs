@@ -46,4 +46,12 @@ public class PlaneSelector : MonoBehaviour
             }
         }
     }
+
+    public void DisableEveryPlanes()
+    {
+        foreach (var plane in arPlaneManager.trackables)
+        {
+            plane.gameObject.SetActive(false);
+        }
+    }
 }
