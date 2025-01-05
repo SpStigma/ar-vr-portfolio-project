@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 173870620}
   - component: {fileID: 173870619}
   m_Layer: 5
-  m_Name: Forme 3
+  m_Name: rectangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1380,7 +1380,7 @@ GameObject:
   - component: {fileID: 1387969306}
   - component: {fileID: 1387969305}
   m_Layer: 5
-  m_Name: Forme 2
+  m_Name: cercle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1966,9 +1966,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnableFormes:
-  - {fileID: 6053860148265086321, guid: 291970a2b69d9a54d894e7f4c385e654, type: 3}
-  - {fileID: 6741999156193426939, guid: 6ff65cd7d7f7d394fa56c7acc6a323c7, type: 3}
-  - {fileID: 510463235872574576, guid: 09ce2b420e950394f9d2ef2689170621, type: 3}
+  - {fileID: 6956521503990902494, guid: 3f9caab5abeba4b4e96950398b0bfd57, type: 3}
+  - {fileID: 4390601820004075946, guid: 1b48ba6bc5d96b24395040409ce59235, type: 3}
+  - {fileID: 4026424320195107681, guid: 624e3e33a8777c54fabeb3b531b90430, type: 3}
 --- !u!4 &1887154578
 Transform:
   m_ObjectHideFlags: 0
@@ -2011,7 +2011,7 @@ GameObject:
   - component: {fileID: 1893070004}
   - component: {fileID: 1893070003}
   m_Layer: 5
-  m_Name: Forme1
+  m_Name: "carr\xE9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
