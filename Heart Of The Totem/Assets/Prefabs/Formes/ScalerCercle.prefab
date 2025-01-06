@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4929774981749860658}
   - component: {fileID: 3482188997205078862}
   - component: {fileID: 2301812019081265248}
+  - component: {fileID: 7543875027932080109}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 10, y: 0.1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7301451108175170607}
@@ -105,6 +106,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7543875027932080109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289871040898206849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a2a85b4fba74e4586ae5997ff22f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totemPrefab: {fileID: 667634392646607912, guid: 14eaf95e7b7a87941b8df0a1ba23b5b6, type: 3}
 --- !u!1 &4026424320195107681
 GameObject:
   m_ObjectHideFlags: 0
