@@ -20,7 +20,7 @@ public class TerrainWithTotem : MonoBehaviour
         Vector3 terrainCenter = GetComponent<Renderer>().bounds.center;
         Vector3 terrainSize = GetComponent<Renderer>().bounds.size;
 
-        Vector3 totemPosition = new Vector3(terrainCenter.x, terrainCenter.y + terrainSize.y / 2 + 1f, terrainCenter.z);
+        Vector3 totemPosition = new Vector3(terrainCenter.x, terrainCenter.y + terrainSize.y / 2 + .5f, terrainCenter.z);
 
         totemInstance = Instantiate(totemPrefab, totemPosition, Quaternion.identity, transform);
     }
