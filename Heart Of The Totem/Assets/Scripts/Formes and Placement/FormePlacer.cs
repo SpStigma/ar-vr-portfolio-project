@@ -86,6 +86,7 @@ public class FormePlacer : MonoBehaviour
                 float scaleDelta = currentPinchDistance.magnitude / initialPinchDistance.magnitude;
 
                 activeForme.transform.localScale = Vector3.one * initialScale * scaleDelta;
+                Parameters.objectScale = activeForme.transform.localScale;
                 Debug.Log($"Échelle mise à jour : {activeForme.transform.localScale}");
             }
         }

@@ -7,7 +7,7 @@ public class EnemyStats : MonoBehaviour
     public float attackSpeed = 1f;
     public float damage = 10f;
     public float attackRange = 2f;
-    public float movementSpeed = 2f;
+    public float coin = 2f;
 
     public virtual void TakeDamage(float amount)
     {

@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Totem
-  speed: 2
+  speed: 1
 --- !u!114 &1913309416158982628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,5 +166,5 @@ MonoBehaviour:
   health: 100
   attackSpeed: 1
   damage: 10
-  attackRange: 1
-  movementSpeed: 2
+  attackRange: 0
+  coin: 2

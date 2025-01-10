@@ -17,16 +17,14 @@ public class MoveTowardsTarget : MonoBehaviour
         totem = GameObject.FindGameObjectWithTag(targetTag);
         if (totem != null)
         {
-            // Faire regarder le GameObject vers la cible
             Vector3 direction = (totem.transform.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, speed * Time.deltaTime);
 
-            // Déplacement vers la cible
             transform.position = Vector3.MoveTowards(
                 transform.position, 
                 totem.transform.position, 
-                speed * Time.deltaTime
+                speed * Parameters.objectScale.magnitude *Time.deltaTime
             );
 
             if (Vector3.Distance(transform.position, totem.transform.position) < 0.1f)
