@@ -7,7 +7,7 @@ public class EnemyStats : MonoBehaviour
     public float attackSpeed = 1f;
     public float damage = 10f;
     public float attackRange = 1f * Parameters.objectScale.magnitude;
-    public float coin = 2f;
+    public int coin = 2;
 
     public virtual void TakeDamage(float amount)
     {
@@ -21,7 +21,7 @@ public class EnemyStats : MonoBehaviour
 
     public virtual void Die()
     {
-        Debug.Log($"{gameObject.name} est mort.");
         Destroy(gameObject);
+        Parameters.goldCoin += coin;
     }
 }

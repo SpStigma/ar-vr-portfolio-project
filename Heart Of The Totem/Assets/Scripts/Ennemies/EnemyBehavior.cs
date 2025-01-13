@@ -49,7 +49,6 @@ public class EnemyBehavior : EnemyStats
             if (totemBehavior != null)
             {
                 totemBehavior.TakeDamage(damage);
-                Debug.Log($"{damage} domages !");
             }
         }
     }

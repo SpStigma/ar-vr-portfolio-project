@@ -7,11 +7,6 @@ public class MoveTowardsTarget : MonoBehaviour
 
     private GameObject totem;
 
-    public void Start()
-    {
-        totem = GameObject.FindGameObjectWithTag(targetTag);
-    }
-
     void Update()
     {
         totem = GameObject.FindGameObjectWithTag(targetTag);
@@ -24,13 +19,8 @@ public class MoveTowardsTarget : MonoBehaviour
             transform.position = Vector3.MoveTowards(
                 transform.position, 
                 totem.transform.position, 
-                speed * Parameters.objectScale.magnitude *Time.deltaTime
+                speed  * Parameters.objectScale.magnitude  * Time.deltaTime
             );
-
-            if (Vector3.Distance(transform.position, totem.transform.position) < 0.1f)
-            {
-                Debug.Log("Cible atteinte !");
-            }
         }
         else
         {
