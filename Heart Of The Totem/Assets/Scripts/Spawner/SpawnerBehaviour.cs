@@ -13,6 +13,7 @@ public class SpawnerBehavior : MonoBehaviour
     private int waveIndex = 0;
 
     public Button nextWaveButton;
+    public GameObject panelShop;
     private bool isWaveInProgress = false;
 
     private int activeEnemies = 0;
@@ -40,6 +41,7 @@ public class SpawnerBehavior : MonoBehaviour
             isWaveInProgress = false;
             if (nextWaveButton != null)
             {
+                panelShop.gameObject.SetActive(true);
                 nextWaveButton.gameObject.SetActive(true);
             }
         }
