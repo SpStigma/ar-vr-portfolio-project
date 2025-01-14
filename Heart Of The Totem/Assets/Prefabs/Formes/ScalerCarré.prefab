@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1981150887812695873}
   - component: {fileID: 3068360763576191067}
   - component: {fileID: 765126297051822501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "carr\xE9"
   m_TagString: Terrain
   m_Icon: {fileID: 0}
