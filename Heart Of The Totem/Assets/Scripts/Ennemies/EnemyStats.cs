@@ -6,7 +6,7 @@ public class EnemyStats : MonoBehaviour
     public float health = 100f;
     public float attackSpeed = 1f;
     public float damage = 10f;
-    public float attackRange = 1f * Parameters.objectScale.magnitude;
+    public float attackRange = 1f;
     public int coin = 2;
 
     public event System.Action OnDie;

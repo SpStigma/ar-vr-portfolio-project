@@ -10,7 +10,7 @@ public class EnemyBehavior : EnemyStats
     {
         attackCooldown = attackSpeed;
         rb = GetComponent<Rigidbody>();
-
+        attackRange *= Parameters.objectScale.magnitude;
         FindTotem();
     }
 
