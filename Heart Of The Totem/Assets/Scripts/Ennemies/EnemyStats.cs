@@ -9,6 +9,8 @@ public class EnemyStats : MonoBehaviour
     public float attackRange = 1f * Parameters.objectScale.magnitude;
     public int coin = 2;
 
+    public event System.Action OnDie;
+
     public virtual void TakeDamage(float amount)
     {
         health -= amount;
@@ -21,7 +23,11 @@ public class EnemyStats : MonoBehaviour
 
     public virtual void Die()
     {
-        Destroy(gameObject);
+        if (OnDie != null)
+        {
+            OnDie.Invoke();
+        }
         Parameters.goldCoin += coin;
+        Destroy(gameObject);
     }
 }

@@ -10,22 +10,16 @@ public class EnemyBehavior : EnemyStats
     {
         attackCooldown = attackSpeed;
         rb = GetComponent<Rigidbody>();
+
+        FindTotem();
     }
 
     void Update()
     {
-        if (totem == null)
+        if(totem == null)
         {
-            GameObject totemObject = GameObject.FindGameObjectWithTag("Totem");
-
-            if (totemObject != null)
-            {
-                totem = totemObject.transform;
-            }
-            else
-            {
-                return;
-            }
+            FindTotem();
+            return;
         }
 
         float distanceToTotem = Vector3.Distance(transform.position, totem.position);
@@ -57,5 +51,15 @@ public class EnemyBehavior : EnemyStats
     {
         MoveTowardsTarget mv = GetComponent<MoveTowardsTarget>();
         mv.enabled = false;
+    }
+
+    public void FindTotem()
+    {
+        GameObject totemObject = GameObject.FindGameObjectWithTag("Totem");
+
+        if(totemObject != null)
+        {
+            totem = totemObject.transform;
+        }
     }
 }

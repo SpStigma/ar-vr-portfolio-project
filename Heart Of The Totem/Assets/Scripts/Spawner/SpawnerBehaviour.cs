@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class SpawnerBehavior : MonoBehaviour
 {
@@ -6,33 +8,91 @@ public class SpawnerBehavior : MonoBehaviour
     public string tagName = "Terrain";
     private Transform[] spawnPoints;
     private Transform spawnpoint1, spawnpoint2;
-    public WaveInfo[] waves;
-    public int waveIndex = 0;
 
-    public void Update()
+    public WaveInfo[] waves;
+    private int waveIndex = 0;
+
+    public Button nextWaveButton;
+    private bool isWaveInProgress = false;
+
+    private int activeEnemies = 0;
+
+    void Start()
+    {
+        if (nextWaveButton != null)
+        {
+            nextWaveButton.onClick.AddListener(StartNextWave);
+            nextWaveButton.gameObject.SetActive(false);
+        }
+        
+        terrain = GameObject.FindGameObjectWithTag(tagName);
+        FindSpawnPoints();
+        StartNextWave();
+    }
+
+    void Update()
     {
         terrain = GameObject.FindGameObjectWithTag(tagName);
-
         FindSpawnPoints();
-        if(terrain != null && waveIndex < waves.Length)
+
+        if (isWaveInProgress && activeEnemies == 0)
         {
-            for(int i = 0; i < waves[waveIndex].numberToSpawn; i++)
+            isWaveInProgress = false;
+            if (nextWaveButton != null)
+            {
+                nextWaveButton.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void StartNextWave()
+    {
+        if (terrain == null || waveIndex >= waves.Length)
+            return;
+
+        if (nextWaveButton != null)
+        {
+            nextWaveButton.gameObject.SetActive(false);
+        }
+
+        isWaveInProgress = true;
+        StartCoroutine(SpawnWave(waves[waveIndex]));
+        waveIndex++;
+    }
+
+    private IEnumerator SpawnWave(WaveInfo wave)
+    {
+        foreach (var enemyInfo in wave.enemies)
+        {
+            for (int i = 0; i < enemyInfo.numberToSpawn; i++)
             {
                 Vector3 spawnPosition = ChoseRandomSpawn();
-                Instantiate(waves[waveIndex].enemyToSpawn, spawnPosition, Quaternion.identity, terrain.transform);
+                GameObject enemy = Instantiate(enemyInfo.enemyPrefab, spawnPosition, Quaternion.identity, terrain.transform);
+                activeEnemies++;
+
+                EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
+                if (enemyStats != null)
+                {
+                    enemyStats.OnDie += HandleEnemyDeath;
+                }
+
+                yield return new WaitForSeconds(wave.spawnDelay);
             }
-            waveIndex++;
         }
-        else
-        {
-            return;
-        }
+    }
+
+    private void HandleEnemyDeath()
+    {
+        activeEnemies--;
     }
 
     private void FindSpawnPoints()
     {
+        if (terrain == null)
+            return;
+
         Transform spawnPointsParent = terrain.transform.Find("SpawnPoint");
-        if(spawnPointsParent != null && spawnPointsParent.childCount >= 2)
+        if (spawnPointsParent != null && spawnPointsParent.childCount >= 2)
         {
             spawnpoint1 = spawnPointsParent.GetChild(0);
             spawnpoint2 = spawnPointsParent.GetChild(1);
@@ -43,7 +103,7 @@ public class SpawnerBehavior : MonoBehaviour
     {
         if (spawnpoint1 == null || spawnpoint2 == null)
         {
-            Debug.Log("Probleme sur les spawnpoints");
+            Debug.LogError("Spawn points are not properly set.");
             return Vector3.zero;
         }
 
@@ -66,13 +126,18 @@ public class SpawnerBehavior : MonoBehaviour
 
         return spawnPoint;
     }
-
 }
 
 [System.Serializable]
 public class WaveInfo
 {
-    public GameObject enemyToSpawn;
-    public int numberToSpawn;
+    public EnemyInfo[] enemies;
+    public float spawnDelay = 1f;
+}
 
-} 
+[System.Serializable]
+public class EnemyInfo
+{
+    public GameObject enemyPrefab;
+    public int numberToSpawn;
+}
