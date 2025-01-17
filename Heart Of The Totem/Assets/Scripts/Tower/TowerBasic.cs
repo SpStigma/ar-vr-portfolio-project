@@ -3,12 +3,16 @@ using UnityEngine;
 public class TowerBasic :TowerStats
 {
     private Transform target;
-
     private float attackCooldown;
+
+    public GameObject projectileToFire;
+    public Transform firePoint;
+    private GameObject terrain;
 
     void Start()
     {
         attackCooldown = 1f / attackSpeed;
+        terrain = GameObject.FindGameObjectWithTag("Terrain");
     }
 
     void Update()
@@ -21,7 +25,7 @@ public class TowerBasic :TowerStats
 
             if (attackCooldown <= 0f)
             {
-                AttackTarget();
+                ShootProjectile();
                 attackCooldown = 1f / attackSpeed;
             }
         }
@@ -43,13 +47,22 @@ public class TowerBasic :TowerStats
         target = null;
     }
 
-    void AttackTarget()
+    public void ShootProjectile()
     {
-        EnemyBehavior enemy = target.GetComponent<EnemyBehavior>();
+        GameObject projectileInstance = Instantiate(projectileToFire, firePoint.position, Quaternion.identity);
 
-        if (enemy != null)
+        Vector3 terrainScale = terrain.transform.lossyScale;
+        projectileInstance.transform.localScale = new Vector3(
+            projectileInstance.transform.localScale.x * terrainScale.x,
+            projectileInstance.transform.localScale.y * terrainScale.y,
+            projectileInstance.transform.localScale.z * terrainScale.z
+        );
+
+        ProjectileBehavior projectile = projectileInstance.GetComponent<ProjectileBehavior>();
+
+        if (projectile != null)
         {
-            enemy.TakeDamage(damage);
+            projectile.SetTarget(target, damage);
         }
     }
 

@@ -165,6 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attackSpeed: 0.5
-  damage: 100
+  damage: 1
   attackRange: 0.5
   coin: 1
