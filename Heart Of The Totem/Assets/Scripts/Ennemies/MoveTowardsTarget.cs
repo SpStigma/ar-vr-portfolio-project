@@ -6,6 +6,12 @@ public class MoveTowardsTarget : MonoBehaviour
     public float speed = 5f;
 
     private GameObject totem;
+    private Animator animator;
+
+    public void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -21,9 +27,11 @@ public class MoveTowardsTarget : MonoBehaviour
                 totem.transform.position, 
                 speed  * Parameters.objectScale.magnitude  * Time.deltaTime
             );
+            animator.SetBool("isRunning", true);
         }
         else
         {
+            animator.SetBool("isRunning", false);
             return;
         }
     }
