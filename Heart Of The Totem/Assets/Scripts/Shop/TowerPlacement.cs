@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 public class TowerPlacementManager : MonoBehaviour
 {
-    public static TowerPlacementManager Instance;   // Singleton
-    public LayerMask placementLayerMask;            // Couches valides pour le placement
-    public Button validateButton;                   // Bouton pour valider le placement
-    public string terrainTag = "Terrain";           // Tag du terrain
+    public static TowerPlacementManager Instance;
+    public LayerMask placementLayerMask;
+    public Button validateButton;
+    public string terrainTag = "Terrain";
 
-    private GameObject previewTower;                // Prévisualisation de la tour
-    private GameObject towerToPlace;                // Tour à placer
-    private GameObject terrain;                     // Terrain détecté
-    private int towerCost;                          // Coût de la tour à placer
-    private bool isPlacing = false;                 // Indique si le mode placement est actif
+    private GameObject previewTower;
+    private GameObject towerToPlace;
+    private GameObject terrain;
+    private int towerCost;
+    private bool isPlacing = false;
 
     void Awake()
     {
@@ -28,7 +28,7 @@ public class TowerPlacementManager : MonoBehaviour
 
     void Start()
     {
-        validateButton.gameObject.SetActive(false); // Désactiver le bouton de validation au départ
+        validateButton.gameObject.SetActive(false);
         validateButton.onClick.AddListener(ValidatePlacement);
     }
 
@@ -57,7 +57,7 @@ public class TowerPlacementManager : MonoBehaviour
         towerCost = cost;
         towerToPlace = towerPrefab;
 
-        // Trouver le terrain pour le parentage
+
         terrain = GameObject.FindGameObjectWithTag(terrainTag);
         if (terrain == null)
         {

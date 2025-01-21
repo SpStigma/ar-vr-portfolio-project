@@ -11,8 +11,15 @@ public class EnemyStats : MonoBehaviour
 
     public event System.Action OnDie;
 
+    private bool isDead = false;
+
     public virtual void TakeDamage(float amount)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         health -= amount;
 
         if (health <= 0)
@@ -23,11 +30,21 @@ public class EnemyStats : MonoBehaviour
 
     public virtual void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+
+        isDead = true;
+
+
         if (OnDie != null)
         {
             OnDie.Invoke();
         }
+
         Parameters.goldCoin += coin;
-        Destroy(gameObject);
+        
+        Destroy(gameObject, 0.1f);
     }
 }

@@ -6,7 +6,6 @@ public class SpawnerBehavior : MonoBehaviour
 {
     private GameObject terrain;
     public string tagName = "Terrain";
-    private Transform[] spawnPoints;
     private Transform spawnpoint1, spawnpoint2;
 
     public WaveInfo[] waves;
@@ -14,63 +13,97 @@ public class SpawnerBehavior : MonoBehaviour
 
     public Button nextWaveButton;
     public GameObject panelShop;
-    private bool isWaveInProgress = false;
+    public GameObject victoryPanel;
 
+    private bool isWaveInProgress = false;
     private int activeEnemies = 0;
+    private int enemiesRemainingToSpawn = 0;
 
     void Start()
     {
+
         if (nextWaveButton != null)
         {
             nextWaveButton.onClick.AddListener(StartNextWave);
-            nextWaveButton.gameObject.SetActive(false);
         }
-        
+
         terrain = GameObject.FindGameObjectWithTag(tagName);
-        FindSpawnPoints();
-        StartNextWave();
+        if (terrain == null)
+        {
+            Debug.LogError("Terrain not found! Check your tag name.");
+        }
+        else
+        {
+            FindSpawnPoints();
+            StartNextWave();
+        }
     }
 
     void Update()
     {
-        terrain = GameObject.FindGameObjectWithTag(tagName);
-        FindSpawnPoints();
 
-        if (isWaveInProgress && activeEnemies == 0)
+        if (isWaveInProgress && enemiesRemainingToSpawn == 0 && activeEnemies == 0)
         {
+
             isWaveInProgress = false;
-            if (nextWaveButton != null)
+
+            if (waveIndex >= waves.Length)
             {
-                panelShop.gameObject.SetActive(true);
-                nextWaveButton.gameObject.SetActive(true);
+                if (victoryPanel != null)
+                {
+                    victoryPanel.SetActive(true);
+                }
+            }
+            else
+            {
+                if (panelShop != null)
+                {
+                    panelShop.SetActive(true);
+                }
             }
         }
     }
 
     public void StartNextWave()
     {
-        if (terrain == null || waveIndex >= waves.Length)
-            return;
-
-        if (nextWaveButton != null)
+        if (terrain == null || waveIndex >= waves.Length || isWaveInProgress)
         {
-            nextWaveButton.gameObject.SetActive(false);
+            return;
         }
 
         isWaveInProgress = true;
+        enemiesRemainingToSpawn = 0;
+
+        foreach (var enemyInfo in waves[waveIndex].enemies)
+        {
+            enemiesRemainingToSpawn += enemyInfo.numberToSpawn;
+        }
+
+        Debug.Log($"Starting wave {waveIndex + 1}. Enemies to spawn: {enemiesRemainingToSpawn}");
+
+        if (panelShop != null)
+        {
+            panelShop.SetActive(false);
+            Debug.Log("Shop panel deactivated.");
+        }
+
         StartCoroutine(SpawnWave(waves[waveIndex]));
         waveIndex++;
     }
 
     private IEnumerator SpawnWave(WaveInfo wave)
     {
+
         foreach (var enemyInfo in wave.enemies)
         {
             for (int i = 0; i < enemyInfo.numberToSpawn; i++)
             {
                 Vector3 spawnPosition = ChoseRandomSpawn();
                 GameObject enemy = Instantiate(enemyInfo.enemyPrefab, spawnPosition, Quaternion.identity, terrain.transform);
+
                 activeEnemies++;
+                enemiesRemainingToSpawn--;
+
 
                 EnemyStats enemyStats = enemy.GetComponent<EnemyStats>();
                 if (enemyStats != null)
@@ -81,11 +114,14 @@ public class SpawnerBehavior : MonoBehaviour
                 yield return new WaitForSeconds(wave.spawnDelay);
             }
         }
+
+        Debug.Log("Wave spawning completed.");
     }
 
     private void HandleEnemyDeath()
     {
         activeEnemies--;
+
     }
 
     private void FindSpawnPoints()
@@ -99,13 +135,16 @@ public class SpawnerBehavior : MonoBehaviour
             spawnpoint1 = spawnPointsParent.GetChild(0);
             spawnpoint2 = spawnPointsParent.GetChild(1);
         }
+        else
+        {
+            Debug.LogError("Not enough spawn points found under Terrain.");
+        }
     }
 
     public Vector3 ChoseRandomSpawn()
     {
         if (spawnpoint1 == null || spawnpoint2 == null)
         {
-            Debug.LogError("Spawn points are not properly set.");
             return Vector3.zero;
         }
 

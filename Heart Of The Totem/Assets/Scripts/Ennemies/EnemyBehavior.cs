@@ -16,7 +16,7 @@ public class EnemyBehavior : EnemyStats
 
     void Update()
     {
-        if(totem == null)
+        if (totem == null)
         {
             FindTotem();
             return;
