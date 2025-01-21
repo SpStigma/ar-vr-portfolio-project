@@ -4801,7 +4801,49 @@ MonoBehaviour:
   - enemies:
     - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
       numberToSpawn: 2
+    - enemyPrefab: {fileID: 3214875844689492469, guid: d28d40c46ffa9e84ab0af9424d2ebc88, type: 3}
+      numberToSpawn: 4
     spawnDelay: 2
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1
   - enemies:
     - enemyPrefab: {fileID: 3214875844689492469, guid: 991b6ff041d889f45b97c955c4dc4df8, type: 3}
       numberToSpawn: 2

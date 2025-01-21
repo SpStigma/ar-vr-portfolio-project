@@ -143,30 +143,48 @@ public class SpawnerBehavior : MonoBehaviour
 
     public Vector3 ChoseRandomSpawn()
     {
-        if (spawnpoint1 == null || spawnpoint2 == null)
-        {
-            return Vector3.zero;
-        }
-
         Vector3 spawnPoint = Vector3.zero;
-
-        bool spawnOnVerticalEdge = Random.Range(0f, 1f) > 0.5f;
-
+        
+        // Déterminer s'il faut spawn sur le bord vertical ou horizontal
+        bool spawnOnVerticalEdge = Random.Range(0f, 1f) > .5f;
+        
         if (spawnOnVerticalEdge)
         {
+            // Choisir aléatoirement la coordonnée z dans l'intervalle entre les spawnpoints
             spawnPoint.z = Random.Range(spawnpoint1.position.z, spawnpoint2.position.z);
-            spawnPoint.x = Random.Range(0f, 1f) > 0.5f ? spawnpoint1.position.x : spawnpoint2.position.x;
+            
+            // Choisir aléatoirement de spawn à la position max ou min en x
+            if (Random.Range(0f, 1f) > .5f)
+            {
+                spawnPoint.x = spawnpoint1.position.x;
+            }
+            else
+            {
+                spawnPoint.x = spawnpoint2.position.x;
+            }
         }
         else
         {
+            // Choisir aléatoirement la coordonnée x dans l'intervalle entre les spawnpoints
             spawnPoint.x = Random.Range(spawnpoint1.position.x, spawnpoint2.position.x);
-            spawnPoint.z = Random.Range(0f, 1f) > 0.5f ? spawnpoint1.position.z : spawnpoint2.position.z;
+            
+            // Choisir aléatoirement de spawn à la position max ou min en z
+            if (Random.Range(0f, 1f) > .5f)
+            {
+                spawnPoint.z = spawnpoint1.position.z;
+            }
+            else
+            {
+                spawnPoint.z = spawnpoint2.position.z;
+            }
         }
 
-        spawnPoint.y = spawnpoint1.position.y;
+        // Fixer la position y à la valeur minSpawn.position.y ou ajuster si nécessaire
+        spawnPoint.y = spawnpoint1.position.y;  // Ou, si nécessaire, randomiser en y également
 
         return spawnPoint;
     }
+
 }
 
 [System.Serializable]
