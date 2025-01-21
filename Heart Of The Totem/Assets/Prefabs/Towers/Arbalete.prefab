@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7389744096394166270}
   - component: {fileID: 8706346361346539168}
   m_Layer: 0
-  m_Name: TowerBasique
+  m_Name: Arbalete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  attackRange: 5
-  attackSpeed: 1
+  attackRange: 2
+  attackSpeed: 3
   cost: 50
   projectileToFire: {fileID: 7363113351032428968, guid: d0e4bd1ed840ac4479501afe32c8524c, type: 3}
   firePoint: {fileID: 8626400501138860325}

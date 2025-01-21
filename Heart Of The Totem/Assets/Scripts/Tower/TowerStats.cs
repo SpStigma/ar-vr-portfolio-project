@@ -6,6 +6,5 @@ public class TowerStats : MonoBehaviour
     public int damage = 50;
     public float attackRange = 5f;
     public float attackSpeed = 1f;
-    public int cost = 50;
 }
 

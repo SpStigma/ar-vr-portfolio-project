@@ -5,6 +5,9 @@ public class EnemyBehavior : EnemyStats
     private Transform totem;
     private float attackCooldown;
     private Rigidbody rb;
+    private bool isFrozen = false;
+    private float freezeDuration = .5f;
+    private float freezeTimer = 0f;
 
     void Start()
     {
@@ -20,6 +23,17 @@ public class EnemyBehavior : EnemyStats
         {
             FindTotem();
             return;
+        }
+
+        if (isFrozen)
+        {
+            freezeTimer -= Time.deltaTime;
+            if (freezeTimer <= 0f)
+            {
+                isFrozen = false;
+                KeepGoing();
+
+            }
         }
 
         float distanceToTotem = Vector3.Distance(transform.position, totem.position);
@@ -53,6 +67,12 @@ public class EnemyBehavior : EnemyStats
         mv.enabled = false;
     }
 
+    public void KeepGoing()
+    {
+        MoveTowardsTarget mv = GetComponent<MoveTowardsTarget>();
+        mv.enabled = true;
+    }
+
     public void FindTotem()
     {
         GameObject totemObject = GameObject.FindGameObjectWithTag("Totem");
@@ -61,5 +81,12 @@ public class EnemyBehavior : EnemyStats
         {
             totem = totemObject.transform;
         }
+    }
+
+    public void Freeze()
+    {
+        isFrozen = true;
+        freezeTimer = freezeDuration;
+        StopEnemy();
     }
 }
