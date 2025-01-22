@@ -25,6 +25,5 @@ public class DeathAll : MonoBehaviour
                 enemyBehavior.TakeDamage(1000);
             }
         }
-        Parameters.goldCoin += 10;
     }
 }

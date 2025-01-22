@@ -19,4 +19,9 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
+    public void ResetParameters()
+    {
+        Parameters.goldCoin = 0;
+    }
 }
