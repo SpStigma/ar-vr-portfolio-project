@@ -6,15 +6,36 @@ public class EnemyBehavior : EnemyStats
     private float attackCooldown;
     private Rigidbody rb;
     private bool isFrozen = false;
-    private float freezeDuration = .5f;
+    private float freezeDuration = 0.5f;
     private float freezeTimer = 0f;
     private Animator animator;
+
+    private float attackAnimationDuration;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        attackCooldown = attackSpeed;
         rb = GetComponent<Rigidbody>();
+
+        if (animator != null)
+        {
+            AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+            foreach (AnimationClip clip in clips)
+            {
+                if (clip.name == "Attack")
+                {
+                    attackAnimationDuration = clip.length;
+                    break;
+                }
+            }
+        }
+
+        if (attackAnimationDuration > 0)
+        {
+            attackSpeed = attackAnimationDuration;
+        }
+
+        attackCooldown = attackSpeed;
         attackRange *= Parameters.objectScale.magnitude;
         FindTotem();
     }
@@ -34,8 +55,8 @@ public class EnemyBehavior : EnemyStats
             {
                 isFrozen = false;
                 KeepGoing();
-
             }
+            return;
         }
 
         float distanceToTotem = Vector3.Distance(transform.position, totem.position);
@@ -57,12 +78,16 @@ public class EnemyBehavior : EnemyStats
 
             TotemBehavior totemBehavior = totem.GetComponent<TotemBehavior>();
             if (totemBehavior != null)
-            {
-                animator.SetBool("isAttacking", true);
+            {       
+                if (animator != null)
+                {
+                    animator.SetBool("isAttacking", true);
+                }
+
                 totemBehavior.TakeDamage(damage);
             }
         }
-        else
+        else if (animator != null)
         {
             animator.SetBool("isAttacking", false);
         }
@@ -71,21 +96,31 @@ public class EnemyBehavior : EnemyStats
     public void StopEnemy()
     {
         MoveTowardsTarget mv = GetComponent<MoveTowardsTarget>();
-        mv.enabled = false;
-        animator.SetBool("isRunning", false);
+        if (mv != null)
+        {
+            mv.enabled = false;
+        }
+
+        if (animator != null)
+        {
+            animator.SetBool("isRunning", false);
+        }
     }
 
     public void KeepGoing()
     {
         MoveTowardsTarget mv = GetComponent<MoveTowardsTarget>();
-        mv.enabled = true;
+        if (mv != null)
+        {
+            mv.enabled = true;
+        }
     }
 
     public void FindTotem()
     {
         GameObject totemObject = GameObject.FindGameObjectWithTag("Totem");
 
-        if(totemObject != null)
+        if (totemObject != null)
         {
             totem = totemObject.transform;
         }
