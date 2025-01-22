@@ -44,11 +44,6 @@ public class FormePlacer : MonoBehaviour
                 {
                     activeForme = Instantiate(selectedForme, hitPose.position, hitPose.rotation);
                     isPlacing = true;
-                    Debug.Log($"Objet {selectedForme.name} créé pour placement !");
-                }
-                else
-                {
-                    Debug.Log("Aucun prefab sélectionné !");
                 }
             }
         }
@@ -85,9 +80,26 @@ public class FormePlacer : MonoBehaviour
                 Vector2 currentPinchDistance = touch1.position - touch2.position;
                 float scaleDelta = currentPinchDistance.magnitude / initialPinchDistance.magnitude;
 
-                activeForme.transform.localScale = Vector3.one * initialScale * scaleDelta;
+                switch (formeSelector.GetSelectedForme().name.ToLower())
+                {
+                    case "square":
+                        activeForme.transform.localScale = new Vector3(initialScale * scaleDelta, initialScale * scaleDelta, initialScale * scaleDelta);
+                        break;
+
+                    case "rectangle":
+                        float newZ = initialScale * scaleDelta / 2f;
+                        activeForme.transform.localScale = new Vector3(initialScale * scaleDelta, initialScale * scaleDelta, newZ);
+                        break;
+
+                    case "circle":
+                        activeForme.transform.localScale = new Vector3(initialScale * scaleDelta, activeForme.transform.localScale.y, initialScale * scaleDelta);
+                        break;
+
+                    default:
+                        break;
+                }
+
                 Parameters.objectScale = activeForme.transform.localScale;
-                Debug.Log($"Échelle mise à jour : {activeForme.transform.localScale}");
             }
         }
     }
@@ -97,7 +109,6 @@ public class FormePlacer : MonoBehaviour
         if (activeForme != null)
         {
             isPlacing = false;
-            Debug.Log($"Placement validé pour l'objet {activeForme.name} !");
         }
     }
 
@@ -108,7 +119,6 @@ public class FormePlacer : MonoBehaviour
             Destroy(activeForme);
             activeForme = null;
             isPlacing = false;
-            Debug.Log("Placement annulé !");
         }
     }
 }
