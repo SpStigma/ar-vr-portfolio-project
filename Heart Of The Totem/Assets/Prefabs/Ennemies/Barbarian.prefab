@@ -186,5 +186,5 @@ MonoBehaviour:
   health: 25
   attackSpeed: 1
   damage: 5
-  attackRange: 0.4
+  attackRange: 0.6
   coin: 5

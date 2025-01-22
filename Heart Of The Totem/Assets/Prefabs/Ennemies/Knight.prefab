@@ -172,7 +172,7 @@ MonoBehaviour:
   health: 100
   attackSpeed: 2
   damage: 25
-  attackRange: 0.4
+  attackRange: 0.6
   coin: 2
 --- !u!95 &8628488131397792779
 Animator:
