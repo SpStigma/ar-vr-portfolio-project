@@ -29,10 +29,5 @@ public class MoveTowardsTarget : MonoBehaviour
             );
             animator.SetBool("isRunning", true);
         }
-        else
-        {
-            animator.SetBool("isRunning", false);
-            return;
-        }
     }
 }

@@ -8,9 +8,11 @@ public class EnemyBehavior : EnemyStats
     private bool isFrozen = false;
     private float freezeDuration = .5f;
     private float freezeTimer = 0f;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         attackCooldown = attackSpeed;
         rb = GetComponent<Rigidbody>();
         attackRange *= Parameters.objectScale.magnitude;
@@ -56,8 +58,13 @@ public class EnemyBehavior : EnemyStats
             TotemBehavior totemBehavior = totem.GetComponent<TotemBehavior>();
             if (totemBehavior != null)
             {
+                animator.SetBool("isAttacking", true);
                 totemBehavior.TakeDamage(damage);
             }
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
         }
     }
 
@@ -65,6 +72,7 @@ public class EnemyBehavior : EnemyStats
     {
         MoveTowardsTarget mv = GetComponent<MoveTowardsTarget>();
         mv.enabled = false;
+        animator.SetBool("isRunning", false);
     }
 
     public void KeepGoing()
