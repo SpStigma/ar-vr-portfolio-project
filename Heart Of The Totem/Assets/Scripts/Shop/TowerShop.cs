@@ -15,7 +15,7 @@ public class TowerShop : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(OnButtonClick);
 
-        if (costText != null)
+        if (costText == null)
         {
             costText.text = $"{towerCost} Gold";
         }
