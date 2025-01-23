@@ -54,6 +54,7 @@ public class TeslaTower : TowerStats
         {
             enemyBehavior.TakeDamage(damage);
             enemyBehavior.Freeze();
+            AudioManager.instance.PlaySFX(1);
         }
     }
 
