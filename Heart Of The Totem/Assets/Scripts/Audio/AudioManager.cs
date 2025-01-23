@@ -4,6 +4,10 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+    [Header("Audio Clips")]
+    public AudioClip[] bgmClips;
+    public AudioClip[] sfxClips;
+
     private AudioSource bgmSource;
     private AudioSource sfxSource;
 
@@ -24,16 +28,42 @@ public class AudioManager : MonoBehaviour
         sfxSource = transform.Find("SFX").GetComponent<AudioSource>();
     }
 
-    public void PlayBGM(AudioClip clip)
+    public void Start()
     {
-        if (bgmSource.clip == clip) return;
+        if(bgmClips.Length > 0)
+        {
+            PlayBGM(0);
+        }
+    }
+
+    public void PlayBGM(int index)
+    {
+        if (index < 0 || index >= bgmClips.Length)
+        {
+            return;
+        }
+
+        AudioClip clip = bgmClips[index];
+        if (bgmSource.clip == clip) 
+        {
+            return;
+        }
         bgmSource.clip = clip;
         bgmSource.Play();
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(int index)
     {
-        sfxSource.PlayOneShot(clip);
+        if (index < 0 || index >= sfxClips.Length)
+        {
+            return;
+        }
+
+        sfxSource.pitch = Random.Range(0.9f, 1.1f);
+
+        sfxSource.PlayOneShot(sfxClips[index]);
+
+        sfxSource.pitch = 1.0f;
     }
 
     public void StopBGM()
@@ -41,10 +71,10 @@ public class AudioManager : MonoBehaviour
         bgmSource.Stop();
     }
 
+
     public void StopAllSounds()
     {
         bgmSource.Stop();
         sfxSource.Stop();
     }
 }
-

@@ -63,6 +63,7 @@ public class TowerBasic :TowerStats
         if (projectile != null)
         {
             projectile.SetTarget(target, damage);
+            AudioManager.instance.PlaySFX(0);
         }
     }
 
