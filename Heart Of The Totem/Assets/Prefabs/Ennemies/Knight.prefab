@@ -170,11 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194efeb8330fcac429d8a236a8539ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 75
   attackSpeed: 2
   damage: 25
   attackRange: 0.6
-  coin: 2
+  coin: 5
 --- !u!95 &8628488131397792779
 Animator:
   serializedVersion: 5
