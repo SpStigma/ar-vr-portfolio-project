@@ -31,7 +31,7 @@ Heart of the Totem is my second-year final project at Holberton, specializing in
 | .gitignore      | Specifies files and folders to be ignored by Git version control.                                         |
 | README.md       | Information about the project.                                                             |
 
-## Assets
+## Assets Big thanks to
 #### Musique
 <p align="left">
 Music BGM Start by <a href="https://pixabay.com/users/fassounds-3433550/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=160166">FASSounds</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=160166">Pixabay</a>
