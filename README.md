@@ -7,7 +7,9 @@ Heart of the Totem is my second-year final project at Holberton, specializing in
 ### Screenshots:
 
 <p align="center">
-
+    <img src="./Ressources/Images/Home.png" alt="Screenshot" width="30%">
+    <img src="./Ressources/Images/Option.png" alt="Screenshot" width="30%">
+    <img src="./Ressources/Images/Start.png" alt="Screenshot" width="30%">
 </p>
 
 ## Tech stack
@@ -30,10 +32,37 @@ Heart of the Totem is my second-year final project at Holberton, specializing in
 | README.md       | Information about the project.                                                             |
 
 ## Assets
-
-<p align="center">
-
+#### Musique
+<p align="left">
+Music BGM Start by <a href="https://pixabay.com/users/fassounds-3433550/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=160166">FASSounds</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=160166">Pixabay</a>
 </p>
+<p align="left">
+Music nature-walk by <a href="https://pixabay.com/users/folk_acoustic-25300778/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=124997">folk_acoustic</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=124997">Pixabay</a>
+</p>
+<p align="left">
+Sound Effect catapulte by <a href="https://pixabay.com/fr/users/fronbondi_skegs-23154649/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=242106">Gavin Mogensen</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=242106">Pixabay</a>
+</p>
+<p align="left">
+Sound Effect zapper by <a href="https://pixabay.com/fr/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=37980">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=37980">Pixabay</a>
+</p>
+ 
+#### Visual
+<p align="left">
+<a href="https://kaylousberg.itch.io/" target ="_blank">
+<img src="./Ressources/Images/Kaykit.png" alt="Kaylousberg's Itch.io Page">
+</a>
+</p>
+
+#### UI:
+<p align="center">
+  <a href="https://srtoasty.itch.io/ui-assets-pack-2" target="_blank">
+    <img src="./Ressources/Images/UI1.png" alt="Srtoatsy's Itch.io Page" width="25%">
+  </a>
+  <a href="https://kicked-in-teeth.itch.io/button-ui" target="_blank">
+    <img src="./Ressources/Images/UI2.gif" alt="Kicked in Teeth page" width="25%">
+  </a>
+</p>
+
 
 ## Installation
 
@@ -60,5 +89,4 @@ A heartfelt thank you to all contributors who provided freely licensed graphics 
 
 
 ## Author
-**ME XD**
 - Github: [@SpStigma](https://github.com/SpStigma)
