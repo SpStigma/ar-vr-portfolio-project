@@ -3,7 +3,7 @@ using UnityEngine;
 public class MoveTowardsTarget : MonoBehaviour
 {
     public string targetTag = "Totem";
-    public float speed = 5f;
+    public float speed = .5f;
 
     private GameObject totem;
     private Animator animator;
@@ -19,14 +19,20 @@ public class MoveTowardsTarget : MonoBehaviour
         if (totem != null)
         {
             Vector3 direction = (totem.transform.position - transform.position).normalized;
+
+            direction.y = 0;
+
             Quaternion lookRotation = Quaternion.LookRotation(direction);
+
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, speed * Time.deltaTime);
 
+
             transform.position = Vector3.MoveTowards(
-                transform.position, 
-                totem.transform.position, 
-                speed  * Parameters.objectScale.magnitude  * Time.deltaTime
+                transform.position,
+                totem.transform.position,
+                speed * Time.deltaTime
             );
+
             animator.SetBool("isRunning", true);
         }
     }

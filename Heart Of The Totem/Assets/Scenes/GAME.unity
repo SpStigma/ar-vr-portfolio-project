@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: rond
+  m_text: Coming soon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3284,7 +3284,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: rectangle
+  m_text: 'Coming soon
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5300,39 +5302,41 @@ MonoBehaviour:
   - enemies:
     - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
       numberToSpawn: 5
-    spawnDelay: 1
+    spawnDelay: 2
   - enemies:
     - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
       numberToSpawn: 5
+    - enemyPrefab: {fileID: 5955139149461959573, guid: 63152aeaa7fff5445958d6b1b5e0b93f, type: 3}
+      numberToSpawn: 2
+    spawnDelay: 1.5
+  - enemies:
+    - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
+      numberToSpawn: 7
+    - enemyPrefab: {fileID: 5955139149461959573, guid: 63152aeaa7fff5445958d6b1b5e0b93f, type: 3}
+      numberToSpawn: 3
     spawnDelay: 1
   - enemies:
     - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
+      numberToSpawn: 10
+    - enemyPrefab: {fileID: 5955139149461959573, guid: 63152aeaa7fff5445958d6b1b5e0b93f, type: 3}
+      numberToSpawn: 4
+    - enemyPrefab: {fileID: 270075860824249174, guid: f421dd3358fb2ee4e8bef6b8d564faf8, type: 3}
+      numberToSpawn: 1
+    spawnDelay: 1
+  - enemies:
+    - enemyPrefab: {fileID: 5955139149461959573, guid: 63152aeaa7fff5445958d6b1b5e0b93f, type: 3}
       numberToSpawn: 5
+    - enemyPrefab: {fileID: 270075860824249174, guid: f421dd3358fb2ee4e8bef6b8d564faf8, type: 3}
+      numberToSpawn: 8
     spawnDelay: 1
   - enemies:
     - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
-      numberToSpawn: 5
-    spawnDelay: 1
-  - enemies:
-    - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
-      numberToSpawn: 5
-    spawnDelay: 1
-  - enemies:
-    - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
-      numberToSpawn: 5
-    spawnDelay: 1
-  - enemies:
-    - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
-      numberToSpawn: 5
-    spawnDelay: 1
-  - enemies:
-    - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
-      numberToSpawn: 5
-    spawnDelay: 1
-  - enemies:
-    - enemyPrefab: {fileID: 8410637884573106188, guid: ef724b28b62e78245aa00f9e651f78e5, type: 3}
-      numberToSpawn: 5
-    spawnDelay: 1
+      numberToSpawn: 20
+    - enemyPrefab: {fileID: 5955139149461959573, guid: 63152aeaa7fff5445958d6b1b5e0b93f, type: 3}
+      numberToSpawn: 10
+    - enemyPrefab: {fileID: 270075860824249174, guid: f421dd3358fb2ee4e8bef6b8d564faf8, type: 3}
+      numberToSpawn: 8
+    spawnDelay: 0.75
   nextWaveButton: {fileID: 405941100}
   panelShop: {fileID: 432226490}
   victoryPanel: {fileID: 1577749883}
@@ -5804,5 +5808,5 @@ SceneRoots:
   - {fileID: 820626850}
   - {fileID: 1766167632}
   - {fileID: 1887154578}
-  - {fileID: 1768864661}
   - {fileID: 1830636077}
+  - {fileID: 1768864661}

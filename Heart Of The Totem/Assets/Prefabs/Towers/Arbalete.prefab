@@ -153,9 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7578769d59a2a644cafe1669adcb38a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
   attackRange: 2
-  attackSpeed: 3
+  attackSpeed: 1
   projectileToFire: {fileID: 7363113351032428968, guid: d0e4bd1ed840ac4479501afe32c8524c, type: 3}
   firePoint: {fileID: 8626400501138860325}
 --- !u!1001 &5342910531205537988
