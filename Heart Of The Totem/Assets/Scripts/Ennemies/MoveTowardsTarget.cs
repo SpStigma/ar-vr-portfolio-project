@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class MoveTowardsTarget : MonoBehaviour
 {
-    public string targetTag = "Totem";
-    public float speed = .5f;
+    public string targetTag = "Totem"; // Tag de la cible
+    public float baseSpeed = 2.0f;     // Vitesse de base
+    public float speedMultiplier = 0.5f; // Multiplicateur ajustable dans l'inspecteur
 
     private GameObject totem;
     private Animator animator;
@@ -23,14 +24,14 @@ public class MoveTowardsTarget : MonoBehaviour
             direction.y = 0;
 
             Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, baseSpeed * Time.deltaTime);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, speed * Time.deltaTime);
-
+            float adjustedSpeed = baseSpeed * speedMultiplier;
 
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 totem.transform.position,
-                speed * Time.deltaTime
+                adjustedSpeed * Time.deltaTime
             );
 
             animator.SetBool("isRunning", true);

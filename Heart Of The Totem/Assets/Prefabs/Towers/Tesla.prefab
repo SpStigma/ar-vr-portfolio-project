@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  attackRange: 2
-  attackSpeed: 0.5
+  attackRange: 1
+  attackSpeed: 1.5
   chainRange: 2
   chainDelay: 0.2
 --- !u!1001 &6376838651155097809

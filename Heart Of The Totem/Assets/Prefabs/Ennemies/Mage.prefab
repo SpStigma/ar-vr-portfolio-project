@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Totem
-  speed: 0.5
+  baseSpeed: 0.25
+  speedMultiplier: 0.5
 --- !u!114 &6438500107332644809
 MonoBehaviour:
   m_ObjectHideFlags: 0

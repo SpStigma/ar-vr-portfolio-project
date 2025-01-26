@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 197620797926180025}
   - component: {fileID: 145517864679896694}
   - component: {fileID: 7657083563243243091}
-  - component: {fileID: 3414966091045614157}
   - component: {fileID: 8724048243143909576}
+  - component: {fileID: 6834193589059806481}
   m_Layer: 0
   m_Name: Totem
   m_TagString: Totem
@@ -86,8 +86,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3414966091045614157
-CapsuleCollider:
+--- !u!114 &8724048243143909576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667634392646607912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 005526ef764e96f458df7f23c0fba409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+--- !u!65 &6834193589059806481
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,24 +117,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &8724048243143909576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667634392646607912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005526ef764e96f458df7f23c0fba409, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 4.00435, z: 2.1395204}
+  m_Center: {x: 0.000000059604645, y: 1.0021753, z: -0.062217355}
 --- !u!1001 &6757706103294926087
 PrefabInstance:
   m_ObjectHideFlags: 0
