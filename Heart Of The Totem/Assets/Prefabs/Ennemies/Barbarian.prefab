@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Totem
-  baseSpeed: 0.5
+  baseSpeed: 0.35
   speedMultiplier: 0.5
 --- !u!114 &5178731450256071196
 MonoBehaviour:
